@@ -18,7 +18,8 @@ class kandoo {
 			Deno.writeTextFileSync(this.path + '/' + fileName(key), value);
 		}
 		catch (err) {
-			return 'BREAK: ' + err.name;
+			return 'ERROR: ' + err.name;
+			console.log(err);
 		}
 		return 'OK';
 	}
@@ -31,7 +32,8 @@ class kandoo {
 			var value = Deno.readTextFileSync(this.path + '/' + fileName(key));
 		}
 		catch (err) {
-			return 'BREAK: ' + err.name;
+			return 'ERROR: ' + err.name;
+			console.log(err);
 		}
 		return value;
 	}
@@ -44,7 +46,8 @@ class kandoo {
 			Deno.removeSync(this.path + '/' + fileName(key));
 		}
 		catch (err) {
-			return 'BREAK: ' + err.name;
+			return 'ERROR: ' + err.name;
+			console.log(err);
 		}
 		return 'OK';
 	}
